@@ -1,0 +1,447 @@
+/*
+	Dynamic Variables
+*/
+
+@background_color: <%= @wallpaper[:base_color] %>;
+@box_color: <%= @wallpaper[:background_color] %>;
+@link_color: <%= @wallpaper[:link_color] %>;
+@link_active_color: <%= @wallpaper[:link_active_color] %>;
+@link_hover_color: <%= @wallpaper[:link_hover_color] %>;
+
+/*
+	Content
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	height: auto;
+	font: 12px Arial;
+	color: #fff;
+	background: @background_color url(/images/wallpaper.jpg) no-repeat top center fixed;
+}
+
+p { margin-top: 0; }
+h1, h2, h3, h4 { margin: 0 0 5px 0; color: @link_color + #444; }
+
+a { color: @link_color; cursor: pointer; outline: none !important; text-decoration: none; }
+a:visited { color: @link_active_color; }
+a:hover, a:focus, a:active { color: @link_hover_color; }
+a img { border: 0; }
+
+/* Helpers */
+
+.reset { clear: both; margin: 0; padding: 0; list-style: none; }
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+.clear { clear: both; }
+
+.loader { background: transparent url('/images/ajax.gif') no-repeat center center; height: 20px; display: none; }
+.right { float: right; }
+.left { float: left; }
+
+.rounded_corners (@radius: 5px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/* Flash */
+
+.flash_notice {
+	background: #A4E1A2 url('../images/icon-success.png') 20px center no-repeat;
+	color: #094808;
+	text-shadow: #C0FDE3 0px 1px 0px;
+	border: 1px solid #DDE3D7;
+}
+
+.flash_error, .flash_notice {
+	margin: 0 0 10px 0; 
+	font-size: 18px;
+	padding: 10px 60px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	opacity: 0.9;
+}
+
+.flash_error {
+	background: #AF2B2B url('../images/icon-error.png') 20px center no-repeat;
+	color: #fff;
+	border: 1px solid #DA3536;
+	text-shadow: #000 0px 1px 0px;
+}
+
+/*
+	Wrapper
+*/
+
+.wrapper {
+	margin: 0 auto;
+	width: 800px;
+}
+
+/*
+	Top navigation
+*/
+
+.top {
+	margin: 0;
+	background-color: #151515;
+	height: 24px;
+}
+
+.top > ul { width: .wrapper['width']; margin: 0 auto; }
+.top > ul > li { float: left; border-right: 1px solid #444; overflow: hidden; }
+.top > ul > li:first-child { border-left: 1px solid #444; }
+.top > ul > .right { float: right; } 
+.top > ul > li:last-child { float: right; border-left: 1px solid #444; }
+
+.top > ul > li:hover { overflow: visible; }
+.top > ul > li > ul { visibility: hidden; z-index: 10; position: absolute; }
+.top > ul > li:hover > ul { visibility: visible; }
+
+.top > ul > li > ul > li > a { background-color: rgba(21,21,21,0.9); width: 100px; }
+
+.top > ul > li a { 
+	color: #888;
+	background-color: #151515;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 2px 6px;
+}
+
+.top > ul > li a:hover {
+	color: #C2C2C2;
+	border-bottom: 2px solid @link_color;
+	padding-bottom: 0;
+}
+
+/*
+	Box
+*/
+
+@box_padding: 5px;
+
+.box {
+	background-color: @box_color;
+	.rounded_corners(4px);
+	padding: @box_padding;
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+@box_section_border_color: #272727;
+@box_section_padding: 2px;
+@box_section_border_size: 2px;
+
+.box:first-child {
+	margin-top: 50px;
+}
+
+.box > section:first-child {
+	margin-top: 0px;
+}
+
+.box > section {
+	margin-top: 10px;
+	border: @box_section_border_size solid @box_section_border_color;
+	background-color: #444;
+	padding: @box_section_padding;
+	.rounded_corners(3px);
+}
+
+.box > .black {
+	background-color: rgba(0,0,0, 0.7) !important;
+	.rounded_corners(3px);
+	border: 0;
+	padding: @box_section_padding;
+}
+
+.box article {
+	margin: 4px;
+	color: #CCC;
+}
+
+/*
+	Search Box
+*/
+
+@search_box_width: 460px;
+@search_box_full_width: 90px;
+
+.searchbox {
+	width: @search_box_width;
+	margin: 0 auto;
+	margin-top: 180px !important;
+}
+
+.searchbox.full {
+	width: auto;
+	margin-top: 20px !important;
+}
+
+.searchbox input[type="submit"] {
+	background-color: @box_section_border_color;
+	border: 0;
+	color: #fff;
+	font-weight: bold;
+	height: 25px;
+	float: right;
+	margin-top: 1px;
+	margin-right: 1px;
+	width: 70px;
+	.rounded_corners(2px);
+}
+
+.searchbox input[type="submit"]:active {
+	background-color: @box_section_border_color - #111;
+}
+
+.searchbox input[type="text"] {
+	border: 0;
+	padding: 3px;
+	.rounded_corners(2px);
+	width: 368px;
+	margin-left: 2px;
+	font-size: 14px;
+	color: #666;
+}
+
+.searchbox.full input[type="text"] {
+	width: 698px;
+}
+
+/*
+	Popular searches
+*/
+
+.popularSearches {
+	width: .searchbox['width']+80px;
+	margin: 0 auto;
+	margin-top: 40px;
+	text-align: center;
+}
+
+.popularSearches p {
+	margin: 4px 6px;
+}
+
+.popularSearches a { padding: 0 4px; }
+
+/*
+	List
+*/
+
+.list:first-child {
+	margin-top: 0px;
+	padding-top: 0px;
+	border-top: 0;
+}
+
+@list_preview_width: 90px;
+@list_preview_margin: 4px;
+
+.list {
+	border-top: 1px dashed #444;
+	padding-top: 5px;
+	margin-top: 5px;
+	min-height: @list_preview_width;
+}
+
+.list h2 { margin-bottom: 0px; }
+.list .info {
+	margin-bottom: 4px;
+	font-weight: normal;
+	text-align: left;
+	color: #fff;
+	font-size: 11px;
+}
+
+.list > .preview {
+	width: @list_preview_width;
+	height: @list_preview_width;
+	.rounded_corners(4px);
+	background: #000;
+	position: absolute;
+	margin-left: @list_preview_margin;
+}
+
+.list > article {
+	margin-left: @list_preview_width + 5px + 2 * @list_preview_margin;
+}
+
+/*
+	Anime details
+*/
+
+article .details {
+	margin-top: 10px;
+	min-height: 270px;
+}
+
+article header h1 {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #444;
+}
+
+@details_preview_width: 200px;
+
+.details > .preview {
+	overflow: hidden;
+	width: @details_preview_width;
+	height: 260px;
+	position: absolute;
+	margin-left: 0;
+	text-align: center;
+	background: transparent url() no-repeat center center;
+	.rounded_corners(4px);
+	border: 2px solid #000;
+}
+
+.details > .description {
+	margin-left: @details_preview_width + 20px;
+	min-height: 140px;
+}
+
+/*
+	Episodes
+*/
+
+.episodes {
+	list-style: none inside;
+	margin: 5px 10px;
+	padding: 0;
+}
+
+.episodes p {
+	margin-left: 25px;
+	margin-bottom: 3px;
+}
+
+.episodes > li {
+	padding: 4px 6px;
+	margin-bottom: 4px;
+}
+
+.episodes .link { cursor: pointer; }
+
+.episodes .link .aired {
+	float: right;
+	width: 130px;
+	font-size: 11px;
+	margin-left: 5px;
+	text-align: left;
+}
+
+.episodes .link h4 {
+	margin: 0;
+	display: block;
+}
+
+@episode_link_number_width: 80px;
+@episode_link_number_margin_right: 5px;
+
+.episodes .link .number {
+	margin-right: @episode_link_number_margin_right;
+	font-weight: bold;
+	float: left;
+	width: @episode_link_number_width;
+}
+
+.episodes .details {
+	margin-top: 5px;
+	margin-left: @episode_link_number_width + @episode_link_number_margin_right;
+}
+
+.episodes > li.alt {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.episodes ol {
+	margin: 0;
+	list-style: decimal inside;
+	padding-left: 30px;
+}
+
+.episodes ol > li {
+	display: block;
+	padding: 2px 4px;
+}
+
+.episodes ol > li.alt {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/*
+	Letters
+*/
+
+.letters {
+	list-style: none inside;
+	margin-bottom: 10px;
+	padding: 0;
+	text-align: center;
+}
+
+.letters > li {
+	display: inline;
+	margin-left: 3px;
+	margin-bottom: 2px;
+}
+
+.letters > li > a {
+	background: rgba(0,0,0, 0.8);
+	color: #fff;
+	font-weight: bold;
+	padding: 4px 6px;
+	.rounded_corners(2px);
+}
+
+.letters > li > a:hover, .letters > li > .selected {
+	background: rgba(255, 255, 255, 0.3);
+	color: #000;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	text-align: center;
+	margin: 5px 10px;
+}
+
+.pagination .previous_page, .pagination .next_page {
+	font-weight: bold;
+	padding: 0 5px;
+}
+
+/*
+	Tags
+*/
+
+.tags {
+	text-align: center;
+}
+
+.tags > a {
+	margin: 2px 5px;
+	line-height: 24px;
+}
+
+.tags > .tag1 { font-size: 100%; }
+.tags > .tag2 { font-size: 120%; }
+.tags > .tag3 { font-size: 140%; }
+.tags > .tag4 { font-size: 160%; }
+.tags > .tag5 { font-size: 180%; }
+.tags > .tag6 { font-size: 200%; }
+.tags > .tag7 { font-size: 220%; }
+.tags > .tag8 { font-size: 240%; }
+.tags > .tag9 { font-size: 260%; }
+.tags > .tag10 { font-size: 280%; }
+.tags > .tag11 { font-size: 300%; }
+.tags > .tag12 { font-size: 320%; }

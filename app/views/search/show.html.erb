@@ -1,0 +1,26 @@
+<div class="wrapper">
+	<div class="box searchbox full">
+		<section>
+			<%= form_tag search_path, :method => :get do %>
+				<%= text_field_tag "query", params[:query], :placeholder => t('searchbox.placeholder') %>
+				<%= submit_tag t('searchbox.submit') %>
+			<% end %>
+		</section>
+		
+		<section class="results black">
+			<% if @animes.empty? %>
+				<h3><%= t('searchbox.no_results') %></h3>
+			<% else %>
+				<%= render :partial => @animes %>
+			<% end %>
+		</section>
+	</div>
+	
+	<% if @animes.total_entries > @animes.per_page %>
+	<div class="box">
+		<section class="black">
+			<%= will_paginate @animes, :next_label => t('pagination.next_label'), :previous_label => t('pagination.prev_label') %>
+		</section>
+	</div>
+	<% end %>
+</div>

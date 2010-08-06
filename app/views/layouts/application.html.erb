@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ase</title>
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag 'jquery-1.4', 'jquery.placeholder', 'jquery.rails' %>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function () {
+			$('input:text').placeholder();
+			
+			$('.episodes .link').click(function () {
+				$(this).next(".details").toggle("blind");
+			});
+
+			$('.episodes .details').hide();
+			
+			var selected_ep = window.location.hash.match(/episode_\d{1,4}/);
+			
+			if (selected_ep == null) {
+				$('.episodes li').first().find(".details").show();
+			} else {
+				$("#"+selected_ep[0]).find(".details").slideDown();
+			}
+			
+		});
+
+	</script>
+</head>
+<body>
+	<nav class="top reset">
+		<ul class="reset">
+			<li><%= link_to t('layout.menu.search'), root_path %></li>
+			<li><%= link_to t('layout.menu.browse'), animes_path %></li>
+			<li><%= link_to t('layout.menu.latest'), latest_animes_path %></li>
+			<li><%= link_to t('layout.menu.top'), animes_path %></li>
+			<li><%= link_to t('layout.menu.tags'), tags_path %></li>
+			<!--
+			<li><%#= link_to t('layout.menu.download_wallpaper'), WALLPAPER[:wallpaper_url], :target => :blank %></li>-->
+			<li class="right"><%= link_to "English", :locale => :en %></li>
+			<li class="right"><%= link_to "Polski", :locale => :pl %></li>
+		</ul>
+	</nav>
+
+	<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+\s\|\sWatch\s.+\sOnline
+\s\|\sUrHentai.com\sDaily\sFree\sHentai\sStream
+\s\|\s.+\sStream\sOnline
+\s\|\s.+
+\s\|\sWatch.+
+Daily
+Free
+Hentai
+Stream
+- watch.+
+Watch
+Anime\sThat!
+Stream\sAnime
+Movies
+Anime\sEpisodes
+\|.+Stream Online
+\d:
+:
+fuel\.com
+\.com
+watch
+\sII\s
+online
+crunchyroll
+leet
+-\and
+anime stealth
+by AnimeClipse
+animeclipse
+official
+home
+~.+~
+videos
+zomg
+episodes
+anilikz
+dvd
+download A
+\sEN\s
+\sPL\s
+\sTV\s
+animekuro
+movies
+Free
+animeviewer
+Nothing found for\s.+
+OVA
+\.net
+stream
+\si{1,3}\s
+\sl{1,3}\s
+streaming
+english
+subbed
+dubbed
+download
+anime
+\[.+\]
+\(.+\)
+\(Uncensored\)
+&raquo;
+part
+special
+finale
+final
+doujinshi
+read
+ova
+\s-\sThat!\s.*
+[^0-9A-Za-z\s\-!?`']

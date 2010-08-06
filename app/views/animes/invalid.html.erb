@@ -1,0 +1,40 @@
+<style type="text/css" media="screen">
+	.alt {
+		background: rgba(255,255,255, 0.1);
+	}
+</style>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function () {
+		$('.merge').click(function () {
+			var loc = $(this).attr("href");
+			
+			var anidb_id = prompt("Enter anidb.net ID!", "");
+			window.location = loc+"?anidb_id="+anidb_id;
+			return false;
+		});
+	});
+</script>
+<div class="wrapper">	
+	<div class="box">
+		<section class="results black">
+			<table width="100%">
+				<tr>
+					<th>Name</th>
+					<th width="60px">Episodes</th>
+					<th width="180px">Actions</th>
+				</tr>
+				
+				<% for anime in @animes %>
+				<tr class="<%= cycle('alt', 'normal') %>">
+					<td><%= link_to anime.name, anime %></td>
+					<td><%= anime.episodes.count %></td>
+					<td>
+						<%= link_to "anidb.net", "http://anidb.net/perl-bin/animedb.pl?show=animelist&adb.search=#{anime.name}&do.search=search", :target => "_blank" %> | <%= link_to "Merge", merge_anime_path(anime), :class => "merge" %> | <%= link_to 'Destroy', anime, :confirm => 'Are you sure?', :method => :delete %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+		</section>
+	</div>
+</div>

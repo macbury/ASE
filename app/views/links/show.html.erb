@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ase</title>
+  <%= stylesheet_link_tag 'main', 'frame' %>
+  <%#= javascript_include_tag 'jquery-1.4', 'jquery.placeholder', 'jquery.rails' %>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+	
+</head>
+<body>
+	<nav class="top reset">
+		<ul class="reset">
+			<li><%= link_to t('layout.menu.go_back_to') + ' ' + @anime.name, @anime %></li>
+
+			<li class="right"><%= link_to t('layout.menu.next'), tags_path %></li>
+			<li class="right"><%= link_to t('layout.menu.prev'), tags_path %></li>
+		</ul>
+	</nav>
+
+	<iframe src="<%= @link.url %>" class="link"></iframe>
+
+</body>
+</html>

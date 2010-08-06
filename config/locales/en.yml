@@ -1,0 +1,41 @@
+en:
+  layout:
+    menu:
+      search: "Search"
+      browse: "Browse"
+      latest: "Latest"
+      top: "Top 100"
+      tags: "Tags"
+      download_wallpaper: "Download Wallpaper"
+      next: "Next Episode"
+      prev: "Prev. Episode"
+      go_back_to: "Go back to"
+  
+  rss:
+    subscribe_anime: "Subscribe anime"
+  
+  pagination:
+    next_label: "Next &raquo;"
+    prev_label: "&laquo; Previous"
+  
+  searchbox:
+    placeholder: "Enter title of anime or episode..."
+    submit: "Search"
+    popular: "Popular searches"
+    no_results: "No results"
+  
+  anime:
+    episodes: "Episodes"
+    aired: "aired"
+    episode: "Episode"
+    last_update: "Last Update"
+    description: "Description"
+    alternative_title: "Alternative title"
+    all: "All"
+    click_to_watch: "Click here to watch on"
+    matching_episodes: "Matching Episodes From The Web"
+    no_title: "No title"
+    
+  datetime:
+    distance_in_words:
+      ago: "ago"

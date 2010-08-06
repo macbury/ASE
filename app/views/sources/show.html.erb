@@ -1,0 +1,20 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @source.url %>
+</p>
+
+<p>
+  <b>Parser:</b>
+  <%= @source.parser %>
+</p>
+
+<p>
+  <b>Latest update:</b>
+  <%= @source.latest_update %>
+</p>
+
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

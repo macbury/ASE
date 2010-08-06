@@ -1,0 +1,23 @@
+<div class="wrapper">
+	<div class="box searchbox">
+		<section>
+			<%= form_tag search_path, :method => :get do %>
+				<%= text_field_tag "query", "", :placeholder => t('searchbox.placeholder') %>
+				<%= submit_tag t('searchbox.submit') %>
+			<% end %>
+		</section>
+	</div>
+	
+	<div class="box popularSearches">
+		<div class="black">
+			<p>
+				<strong><%= t('searchbox.popular') %>:</strong> 
+				<% Anime.visible.all(:limit => 10).each do |anime| %>
+				 <%= link_to anime.name, anime %>
+				<% end %>
+			</p>
+		</div>
+	</div>
+	
+
+</div>

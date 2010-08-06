@@ -1,0 +1,25 @@
+<%= form_for(@source) do |f| %>
+  <% if @source.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@source.errors.count, "error") %> prohibited this source from being saved:</h2>
+    <ul>
+    <% @source.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :parser %> 
+    <%= f.select :parser, ["sitemap", "youtube", "rss"] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

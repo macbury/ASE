@@ -1,0 +1,12 @@
+(.+)v(\d{1,5})\s-
+(.+)\s-\sEpisode\s(\d{1,5})\s-\sand
+(.+)\s?-\s?Episode\s?(\d{1,5})
+(.+)\sEpisode\s(\d{1,5})\s-
+(.+)\s-\sEpisode\s(\d{1,5})
+(.+)\sEpisode\s(\d{1,5})
+(.+)\sEp\s(\d{1,5})
+(.+)\sEpisode (\d{1,5})
+(.+)\s-\s(\d{1,5})
+(.+)\s(\d{1,5})
+(.+)\s-\sOdcinek\s(\d{1,5})
+(.+) - Episode (\d{1,5})

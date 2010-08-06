@@ -1,0 +1,9 @@
+Season (\d{1,4})
+s\. (\d{1,4})
+S(\d{1,4})
+Season \((\d{1,4})\)
+episode
+(\d{1,4})th Season
+(\d{1,4})nd season
+(\d{1,4})nd season
+season

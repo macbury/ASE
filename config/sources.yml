@@ -1,0 +1,22 @@
+sitemap:
+  zomganime: "http://www.zomganime.com/sitemap.xml"
+  watchanimeon: "http://www.watchanimeon.com/sitemap.xml"
+  animecrunch: "http://www.animecrunch.com/sitemap.xml.gz"
+  animeshout: "http://www.animeshout.com/sitemap.xml.gz"
+  anilinkz: "http://www.anilinkz.com/sitemap.xml.gz"
+  crunchyroll: "http://www.crunchyroll.com/sitemap.xml.gz"
+  animelime: "http://www.animelime.com/sitemap.xml"
+  voober1: "http://www.voober.com/sitemap1.xml"
+  voober2: "http://www.voober.com/sitemap2.xml"
+  leetanime: "http://www.leetanime.com/sitemap.xml"
+  animestealth: "http://www.animestealth.com/sitemap.xml"
+  animechat: "http://animethat.com/sitemap.xml"
+  gogoanime: "http://www.gogoanime.com/sitemap.xml"
+  
+youtube: ["GONGMulti", "GONGPolska", "marvel"]
+
+rss:
+  animetv: "http://goanimetv.com/?feed=rss2&cat=4"
+  kumbly: "http://www.kumby.com/feed/"
+  animekuro: "http://www.animekuro.com/feed/"
+  animeds: "http://www.anime-ds.com/new-releases-rss.php"

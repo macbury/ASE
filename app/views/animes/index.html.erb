@@ -1,0 +1,23 @@
+<div class="wrapper">
+	<ul class="letters">
+		<li><%= link_to t('anime.all'), animes_path, :class => params[:letter].nil? ? "selected" : "normal" %></li>
+		<li><%= link_to "0", animes_letter_path(:letter => "0"), :class => params[:letter] == "0" ? "selected" : "normal" %></li>
+		<% ("A".."Z").to_a.each do |letter| %>
+		<li><%= link_to letter, animes_letter_path(:letter => letter), :class => params[:letter] == letter ? "selected" : "normal" %></li>
+		<% end %>
+	</ul>
+	
+	<div class="box">
+		<section class="results black">
+			<%= render :partial => @animes %>
+		</section>
+	</div>
+	
+	<% if @animes.total_entries > @animes.per_page %>
+	<div class="box">
+		<section class="black">
+			<%= will_paginate @animes, :next_label => t('pagination.next_label'), :previous_label => t('pagination.prev_label') %>
+		</section>
+	</div>
+	<% end %>
+</div>

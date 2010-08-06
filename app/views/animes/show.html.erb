@@ -1,0 +1,104 @@
+<%= content_for :head do %>
+<%= rss_link(t('rss.subscribe_anime') + " " + @anime.name, anime_url(@anime, :format=>:rss)) %>
+<meta property="og:title" content="<%= @anime.name %>" />
+<meta property="og:type" content="movie" />
+<meta property="og:url" content="<%= anime_url(@anime) %>" />
+<meta property="og:image" content="<%= @anime.poster.url(:medium) %>" />
+<meta property="og:description" content="<%= truncate(@anime.description, :length => 254) %>" />
+<% end %>
+<div class="wrapper">
+	<div class="box">
+		<section class="black">
+			<article>
+				<header><h1><%= @anime.name %></h1></header>
+				
+				<div class="details">
+					<div class="preview" style="background-image:url('<%= @anime.poster.url(:medium) %>')"> </div>
+
+					<div class="description">
+						<% unless @anime.description.nil? %>
+						<h2><%= t('anime.description') %>:</h2>
+						<%= simple_format(description(@anime.description)) %>
+						<% end %>
+						
+						<% unless @titles.empty? %>
+						<h3><%= t('anime.alternative_title') %>:</h3>
+						<ul>
+							<% @titles.each do |title| %>
+							<li><%= title.name %></li>
+							<% end %>
+						</ul>
+						<% end %>
+						
+						<% unless @anime.tags.all.empty? %>
+						<h3>Tags</h3>
+						
+						<p>
+							<% for tag in @anime.tags %>
+							<%= link_to tag.name, tag %>, 
+							<% end %>
+						</p>
+						
+						<% end %>
+						
+						<% unless @anime.anidb_id.nil? %>
+							<p>Read more on <a href="http://anidb.net/perl-bin/animedb.pl?show=anime&aid=<%= @anime.anidb_id %>">anidb.net</a></p>
+						<% end %>
+						
+						<% unless @anime.trailer_url.nil? %>
+							<object width="480" height="385">
+								<param name="movie" value="<%= @anime.trailer_url %>"></param>
+								<param name="allowFullScreen" value="true"></param>
+								<param name="allowscriptaccess" value="always"></param>
+								<embed src="<%= @anime.trailer_url %>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed>
+							</object>
+						
+						<% end %>
+						<p>
+							<% link_to "http://fusion.google.com/add?source=atgs&feedurl=#{anime_url(@anime,:format=>:rss)}" do %>
+								<img src="http://buttons.googlesyndication.com/fusion/add.gif" border="0" alt="Add to Google">
+							<% end %>
+						</p>
+						
+						<iframe src="http://www.facebook.com/plugins/like.php?href=http%253A%252F%252Fexample.com%252Fpage%252Fto%252Flike&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font&amp;colorscheme=dark&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+					</div>
+				</div>
+				<div class="clear"></div>
+				
+				
+			</article>
+		</section>
+	</div>
+	
+	<div class="box">
+		<div class="black">
+			<ul class="episodes">
+				<% @episodes.each do |episode| %>
+				<li class="<%= cycle("alt", "normal") %>" id="episode_<%= episode.number %>">
+					<div class="link">
+						<div class="aired"><%= t('anime.aired') %> <%= aired_ago(episode.aired_at) %></div>
+						<div class="number"><%= t('anime.episode') %> <%= episode.number %></div>
+						<% if episode.title.nil? %>
+							<%= content_tag :h4, t('anime.no_title') %>
+						<% else %>
+							<%= content_tag :h4, truncate(episode.title, :length => 90), :title => episode.title %>
+						<% end %>
+						<div class="clear"></div>
+					</div>
+					<div class="details">
+						<%= content_tag(:p, episode.description, :alt => episode.description) unless episode.description.nil? %>
+						<p><strong><%= t('anime.matching_episodes') %></strong></p>
+						<ol>
+							<% episode.links.each do |link| %>
+							<li>
+								<%= link_to t('anime.click_to_watch') + ' ' +link.source, [@anime, link] %>
+							</li>
+							<% end %>
+						</ol>
+					</div>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

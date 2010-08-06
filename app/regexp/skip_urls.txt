@@ -1,0 +1,6 @@
+http:\/\/www\.voober\.com\/forums\/.*
+http:\/\/www\.voober\.com\/?genre=.*
+http:\/\/www\.voober\.com\/anime-series-list\/
+http:\/\/www\.voober.com\/recent-anime-additions\/
+http:\/\/www\.voober\.com\/anime-movies\/
+http:\/\/www\.animestealth\.com\/chat\/

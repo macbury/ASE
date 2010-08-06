@@ -1,0 +1,11 @@
+<div class="wrapper">
+	
+	<div class="box">
+		<section class="black tags">
+			<% tag_cloud_for_tags @tags do |tag, css| %>
+				<%= link_to tag.name, tag, :class => css %> 
+			<% end %>
+		</section>
+	</div>
+	
+</div>
