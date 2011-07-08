@@ -9,10 +9,10 @@ gem 'pg'
 gem 'color-tools'
 gem 'youtube-g'
 gem 'less'
-gem 'paperclip', :git => 'git://github.com/JasonKing/paperclip.git', :branch => 'rails3'
+gem 'paperclip'
 gem 'libxml-ruby', :require => false
 gem 'nokogiri', :require => false
-gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
+gem "will_paginate"
 # Use unicorn as the web server
 # gem 'unicorn'
 
